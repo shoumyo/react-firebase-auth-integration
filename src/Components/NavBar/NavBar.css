@@ -1,0 +1,5 @@
+.menu li a.active {
+    text-decoration: underline !important;
+    font-weight: bold; /* Optional: makes it pop just a little bit more */
+    text-underline-offset: 4px; /* Optional: gives the underline some breathing room */
+}
