@@ -10,7 +10,7 @@ const handleRegister=(event)=>{
 
     createUserWithEmailAndPassword(auth,email,password)
     .then(result=>{
-        
+
     })
     .catch((error)=>{
         alert(error);
@@ -32,6 +32,8 @@ const Register = () => {
           <div className="card-body">
             <form onSubmit={handleRegister}>
               <fieldset className="fieldset">
+                <label className="label">Name</label>
+                <input type="text" name='name' className="input" placeholder="Name" />
                 <label className="label">Email</label>
                 <input type="email" name='email' className="input" placeholder="Email" />
                 <label className="label">Password</label>
