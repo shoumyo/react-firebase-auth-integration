@@ -1,13 +1,14 @@
-import React, { use } from 'react';
-import AuthProvider from '../../Context/AuthProvider/AuthProvider';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Context/Auth_Context/Auth_Context';
 
 const Home = () => {
-    const authInfo=use(AuthProvider);
-    return (
-        <div>
-            <h3>Home</h3>
-        </div>
-    );
+  const authInfo = useContext(AuthContext);
+  return (
+    <div>
+      <h3>Home</h3>
+      <p>Welcome, {authInfo?.user || 'Guest'}</p>
+    </div>
+  );
 };
 
 export default Home;

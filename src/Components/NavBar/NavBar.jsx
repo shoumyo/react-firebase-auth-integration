@@ -1,10 +1,11 @@
-import React, { use } from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router';
 import './Navbar.css';
 import { AuthContext } from '../../Context/Auth_Context/Auth_Context';
 
 const NavBar = () => {
-    const authInfo=use(AuthContext);
+  const authInfo = useContext(AuthContext);
+  const loggedInName = authInfo?.user || 'Guest';
   // Dynamic style function for active links
   const getLinkClass = ({ isActive }) =>
     isActive ? 'underline decoration-2 text-primary font-semibold' : '';
