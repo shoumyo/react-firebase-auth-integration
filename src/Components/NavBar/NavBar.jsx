@@ -4,9 +4,17 @@ import './Navbar.css';
 import { AuthContext } from '../../Context/Auth_Context/Auth_Context';
 
 const NavBar = () => {
-  const {user} = useContext(AuthContext);
+  const {user,signOutUser} = useContext(AuthContext);
   const getLinkClass = ({ isActive }) =>
     isActive ? 'underline decoration-2 text-primary font-semibold' : '';
+
+  const handleSignOut=()=>{
+    signOutUser()
+    .then()
+    .catch(error=>{
+      alert(error);
+    })
+  }
 
   const links = (
     <>
@@ -25,6 +33,12 @@ const NavBar = () => {
           Register
         </NavLink>
       </li>
+      {
+        user && <>
+          <li><NavLink to='/orders'>Orders</NavLink></li>
+          <li><NavLink to ='profile'>Profile</NavLink></li>
+        </>
+      }
     </>
   );
 
@@ -62,7 +76,7 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <a className="btn btn-neutral mt-4">Sign out</a>
+          <a onclick={handleSignOut} className="btn btn-neutral mt-4">Sign out</a>
         ) : (
           <Link className='btn btn-neutral mt-4' to="/register">Login</Link>
         )}

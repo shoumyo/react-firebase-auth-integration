@@ -8,6 +8,7 @@ import Home from './Components/Home/Home';
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
 import AuthProvider from './Context/AuthProvider/AuthProvider';
+import Orders from './Components/Orders/Orders';
 
 const router = createBrowserRouter([
   {
@@ -23,8 +24,12 @@ const router = createBrowserRouter([
         Component:Register
       },
       {
-        path:'login',
+        path:'/login',
         Component:Login
+      },
+      {
+        path:'/orders',
+        Component:Orders
       }
     ]
   },

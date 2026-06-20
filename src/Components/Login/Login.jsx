@@ -10,7 +10,7 @@ const Login = () => {
     const email=event.target.email.value;
     const password=event.target.password.value;
     signUser(email,password)
-    .then()
+    .then(event.target.reset())
     .catch(error=>{
       alert(error);
     })
