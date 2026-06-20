@@ -33,10 +33,15 @@ const NavBar = () => {
           Register
         </NavLink>
       </li>
+      <li>
+        <NavLink to="/dashboard" className={getLinkClass}>
+          Dashboard
+        </NavLink>
+      </li>
       {
         user && <>
-          <li><NavLink to='/orders'>Orders</NavLink></li>
-          <li><NavLink to ='profile'>Profile</NavLink></li>
+          <li><NavLink to='/orders' className={getLinkClass}>Orders</NavLink></li>
+          <li><NavLink to ='profile' className={getLinkClass}>Profile</NavLink></li>
         </>
       }
     </>
