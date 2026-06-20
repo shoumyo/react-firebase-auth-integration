@@ -3,21 +3,21 @@ import React from 'react';
 import { Link } from 'react-router';
 import { auth } from '../../Firebase/Firebase.init';
 
-const handleRegister=(event)=>{
-    event.preventDefault();
-    const email=event.target.email.value;
-    const password=event.target.password.value;
-
-    createUserWithEmailAndPassword(auth,email,password)
-    .then(result=>{
-
-    })
-    .catch((error)=>{
-        alert(error);
-    })
-}
 
 const Register = () => {
+
+    const handleRegister = (event) => {
+      event.preventDefault();
+      const email = event.target.email.value;
+      const password = event.target.password.value;
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((result) => {})
+        .catch((error) => {
+          alert(error);
+        });
+    };
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">

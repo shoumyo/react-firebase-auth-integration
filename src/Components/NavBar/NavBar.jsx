@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { use } from 'react';
 import { NavLink } from 'react-router';
 import './Navbar.css';
+import { AuthContext } from '../../Context/Auth_Context/Auth_Context';
 
 const NavBar = () => {
+    const authInfo=use(AuthContext);
   // Dynamic style function for active links
   const getLinkClass = ({ isActive }) =>
     isActive ? 'underline decoration-2 text-primary font-semibold' : '';
