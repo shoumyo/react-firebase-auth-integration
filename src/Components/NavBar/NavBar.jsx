@@ -1,12 +1,10 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router';
+import { NavLink,Link } from 'react-router';
 import './Navbar.css';
 import { AuthContext } from '../../Context/Auth_Context/Auth_Context';
 
 const NavBar = () => {
-  const authInfo = useContext(AuthContext);
-  const loggedInName = authInfo?.user || 'Guest';
-  // Dynamic style function for active links
+  const {user} = useContext(AuthContext);
   const getLinkClass = ({ isActive }) =>
     isActive ? 'underline decoration-2 text-primary font-semibold' : '';
 
@@ -63,9 +61,11 @@ const NavBar = () => {
         <ul className="menu menu-horizontal px-1 gap-2">{links}</ul>
       </div>
       <div className="navbar-end">
-        <NavLink to="/register" className="btn">
-          SignUp
-        </NavLink>
+        {user ? (
+          <a className="btn btn-neutral mt-4">Sign out</a>
+        ) : (
+          <Link className='btn btn-neutral mt-4' to="/register">Login</Link>
+        )}
       </div>
     </div>
   );
